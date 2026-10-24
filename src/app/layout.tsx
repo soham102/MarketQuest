@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { AppShell } from "@/components/layout/app-shell";
 import "./globals.css";
 
@@ -34,6 +35,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en-IN" className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <AppShell>{children}</AppShell>
+        {/* Vercel Web Analytics: page views only, no cookies. Inactive in local dev; reports once deployed on Vercel. */}
+        <Analytics />
       </body>
     </html>
   );
